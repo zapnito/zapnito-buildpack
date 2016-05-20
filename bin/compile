@@ -11,6 +11,7 @@ set -o pipefail   # don't ignore exit codes when piping output
 build_dir="$1/zapnito-web"
 cache_dir=$2
 env_dir=$3
+node_version="0.12.7"
 bp_dir=$(cd $(dirname $0); cd ..; pwd)
 heroku_dir=$build_dir/.heroku
 
@@ -31,6 +32,17 @@ export_env_dir $env_dir
 cd $build_dir
 
 ####### Build the project's dependencies
+
+# Download node from Heroku's S3 mirror of nodejs.org/dist
+head "Downloading and installing node"
+node_url="http://s3pository.heroku.com/node/v${node_version}/node-v${node_version}-linux-x64.tar.gz"
+curl $node_url -s -o - | tar xzf - -C $build_dir
+
+# Move node (and npm) into ./vendor and make them executable
+mkdir -p $build_dir/vendor
+mv $build_dir/node-v$node_version-linux-x64 $build_dir/vendor/node
+chmod +x $build_dir/vendor/node/bin/*
+PATH=$build_dir/vendor/node/bin:$PATH
 
 head "Building dependencies"
 
