@@ -45,6 +45,8 @@ chmod +x $build_dir/vendor/node/bin/*
 PATH=$build_dir/vendor/node/bin:$PATH
 
 head "Building dependencies"
+info "Installing node components"
+npm install
 
 # Install bower
 info "Installing bower"
