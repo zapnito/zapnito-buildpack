@@ -36,11 +36,11 @@ head "Building dependencies"
 
 # Install bower
 info "Installing bower"
-npm install --quiet -g bower > /dev/null 2>&1 | indent
+npm install -g bower
 
 # Install bower components
 info "Installing bower components"
-bower install --quiet | indent
+bower install | indent
 
 # Build ember cli application
 build_env=${EMBER_ENV:-production}
