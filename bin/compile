@@ -63,3 +63,4 @@ node_modules/ember-cli/bin/ember build --environment $build_env | indent
 
 # Deploy ember cli application
 node_modules/ember-cli/bin/ember deploy production | indent
+cp ./ember-cli-deploy-revision "$env_dir/ZAPNITO_WEB_REVISION"
