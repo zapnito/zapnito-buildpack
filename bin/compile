@@ -67,3 +67,7 @@ node_modules/ember-cli/bin/ember build --environment $build_env | indent
 # echo "ZAPNITO_WEB_REVISION=$(cat ember-cli-deploy-revision)" >> ../.env
 # echo "dotenv config"
 # cat ../.env
+
+info "Clearing zapnito-web from slug"
+cd
+rm -rf $build_dir
