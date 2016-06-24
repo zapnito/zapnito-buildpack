@@ -62,8 +62,8 @@ head "Building Ember CLI application $build_env distribution"
 node_modules/ember-cli/bin/ember build --environment $build_env | indent
 
 # Deploy ember cli application
-node_modules/ember-cli/bin/ember deploy production | indent
-cp ./ember-cli-deploy-revision "$env_dir/ZAPNITO_WEB_REVISION"
-echo "ZAPNITO_WEB_REVISION=$(cat ember-cli-deploy-revision)" >> ../.env
-echo "dotenv config"
-cat ../.env
+# node_modules/ember-cli/bin/ember deploy production | indent
+# cp ./ember-cli-deploy-revision "$env_dir/ZAPNITO_WEB_REVISION"
+# echo "ZAPNITO_WEB_REVISION=$(cat ember-cli-deploy-revision)" >> ../.env
+# echo "dotenv config"
+# cat ../.env
