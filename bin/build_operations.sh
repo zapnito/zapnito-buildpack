@@ -21,6 +21,10 @@ restore_node_modules() {
   fi
 }
 
+prepare_cache() {
+  mkdir -p $cache_dir
+}
+
 cache_node_modules() {
   if test -d $build_dir/node_modules; then
     info "Caching node modules"

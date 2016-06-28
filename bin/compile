@@ -32,6 +32,7 @@ export_env_dir $env_dir
 
 # Main build sequence
 cd $build_dir
+prepare_cache
 install_node "0.12.7"
 setup_node_modules
 setup_bower_components
