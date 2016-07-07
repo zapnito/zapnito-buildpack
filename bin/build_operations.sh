@@ -34,10 +34,10 @@ cache_node_modules() {
 
 setup_node_modules() {
   head "Setting up node_modules"
-  restore_node_modules
+  # restore_node_modules
   info "Installing node components"
   npm install
-  cache_node_modules
+  # cache_node_modules
 }
 
 setup_bower_components() {
