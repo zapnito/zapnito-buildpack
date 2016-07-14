@@ -1,5 +1,10 @@
 install_node() {
-  local node_version=$1
+  # Look in package.json's engines.node field for a semver range
+  local semver_range=$($bp_dir/vendor/jq -r .engines.node $build_dir/package.json)
+
+  # Resolve node version using semver.io
+  local node_version=$(curl --silent --get --data-urlencode "range=${semver_range}" https://semver.io/node/resolve)
+
   # Download node from Heroku's S3 mirror of nodejs.org/dist
   head "Downloading and installing node"
   node_url="http://s3pository.heroku.com/node/v${node_version}/node-v${node_version}-linux-x64.tar.gz"
