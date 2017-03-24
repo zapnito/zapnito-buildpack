@@ -77,4 +77,5 @@ cleanup() {
   info "Clearing zapnito-web from slug"
   cd
   rm -rf $build_dir
+  rm -rf "$build_root/zapnito"
 }
