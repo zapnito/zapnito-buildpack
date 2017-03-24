@@ -9,6 +9,7 @@ set -o pipefail   # don't ignore exit codes when piping output
 
 # Configure directories
 build_dir="$1/zapnito-web"
+build_root=$1
 cache_dir=$2
 env_dir=$3
 bp_dir=$(cd $(dirname $0); cd ..; pwd)
@@ -38,5 +39,6 @@ setup_node_modules
 setup_bower_components
 build_zapnito_web
 deploy_zapnito_web
+prepare_rails_app
 cleanup
 
