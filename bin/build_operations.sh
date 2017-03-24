@@ -78,4 +78,5 @@ cleanup() {
   cd
   rm -rf $build_dir
   rm -rf "$build_root/zapnito"
+  rm -rf "$build_root/tmp"
 }
