@@ -73,6 +73,7 @@ deploy_zapnito_web() {
 }
 
 prepare_rails_app() {
+  ls $build_root
   cp -r "$build_root/zapnito/*" .
 }
 
