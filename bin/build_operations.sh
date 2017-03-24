@@ -72,6 +72,10 @@ deploy_zapnito_web() {
   cat ../.env
 }
 
+prepare_rails_app() {
+  cp -r "$build_root/zapnito/*" .
+}
+
 cleanup() {
   # Cleanup
   info "Clearing zapnito-web from slug"
